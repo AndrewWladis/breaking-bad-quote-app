@@ -1,7 +1,6 @@
 import { View, Text, Pressable, Modal, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 
 export default function ModalContent({ navigation }) {
     return (

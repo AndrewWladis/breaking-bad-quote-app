@@ -2,53 +2,44 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import React, {useState} from 'react'
 import styles from './styles'
 
-const Data = require('./Data.json');
-
 var Filter = require('bad-words'),
 filter = new Filter();
 
-export default function Questions() {
+function Questions({ route }) {
+    let colorArr = ['#ff3526', '#265cff', '#abab2c', '#39c21d'];
+    const [color, setColors] = useState('normal');
 
-    function returnRandomArr(author) {
-        let arr = []
-        let authorIndex = Math.floor(Math.random() * 4);
-        for (let i = 0; i < 3; i++) {
-            if (authorIndex === i) {
-                arr.push(author)
+    const isAnswer = (ele) => {
+        if (color === 'normal') {
+            if (ele === route.params.quote.author) {
+                setColors(colorArr[3])
+            } else {
+                setColors(colorArr[0])
             }
-            let character = Data.characters[Math.floor(Math.random() * Data.characters.length)];
-            while (author === character || arr.includes(character)) {
-                character = Data.characters[Math.floor(Math.random() * Data.characters.length)];
-            }
-            arr.push(character);
         }
-        if (authorIndex === 3) {
-            arr.push(author)
-        }
-        return arr;
     }
 
-    const [quote, setQuote] = useState(Data.quotes[Math.floor(Math.random() * Data.quotes.length)]);
-    let arr = returnRandomArr(quote.author);
-
+    const returnColor = (num) => {
+        if (color === 'normal') {
+            return colorArr[num];
+        } else {
+            return color;
+        }
+    }
 
     return (
         <View style={styles.questionContainer}>
+            <Text style={styles.questionInfoHeader}>Question: {route.params.questionNumber}</Text>
             <View style={styles.quoteContainer}>
-                <Text style={styles.quote}>"{filter.clean(quote.quote)}"</Text>
+                <Text style={styles.quote}>"{filter.clean(route.params.quote.quote)}"</Text>
             </View>
-            <TouchableOpacity style={[styles.option, { backgroundColor: '#ff3526', }]}>
-                <Text style={styles.optionText}>{arr[0]}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.option, { backgroundColor: '#265cff', }]}>
-                <Text style={styles.optionText}>{arr[1]}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.option, { backgroundColor: '#abab2c', }]}>
-                <Text style={styles.optionText}>{arr[2]}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.option, { backgroundColor: '#39c21d', }]}>
-                <Text style={styles.optionText}>{arr[3]}</Text>
-            </TouchableOpacity>
+            {route.params.array.map((element, index) => (
+                    <TouchableOpacity onPress={() => {isAnswer(element)}} key={index} style={[styles.option, { backgroundColor: returnColor(index), }]}>
+                        <Text style={styles.optionText}>{element}</Text>
+                    </TouchableOpacity>
+            ))}
         </View>
     )
 }
+
+export default Questions

@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         flex: 0.75,
         width: '94%',
         borderRadius: 50,
-        marginBottom: 30,
+        marginBottom: 20,
         justifyContent: "center"
     },
     optionText: {
@@ -68,6 +68,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'column',
     },
+    questionInfoHeader: {
+        fontSize: 35,
+        marginTop: 45,
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign: 'center'
+    },
     quote: {
         color: 'white',
         fontSize: 32,
@@ -80,7 +87,7 @@ const styles = StyleSheet.create({
         borderColor: 'green',
         borderWidth: 5,
         borderRadius: 20,
-        marginTop: 40,
+        marginTop: 20,
         marginBottom: 20,
         backgroundColor: '#424242',
         width: '94%',
