@@ -33,39 +33,49 @@ const getData = async () => {
 export default function App() {
   const [quote, setQuote] = useState(Data.quotes[Math.floor(Math.random() * Data.quotes.length)]);
   const [questionNumber, setQuestionNumber] = useState(1);
+  let usedQuestions = [];
 
-  function returnRandomArr(author) {
+  //call this func to get new info
+  function changeQuote() {
+    usedQuestions.push(quote.quote);
+    let newQuote = Data.quotes[Math.floor(Math.random() * Data.quotes.length)];
+    while (usedQuestions.includes(newQuote)) {
+      newQuote = Data.quotes[Math.floor(Math.random() * Data.quotes.length)];
+    }
+    setQuote(newQuote);
+    setQuestionNumber(questionNumber + 1);
+  }
+
+  const returnRandomArr = () => {
     let arr = [];
     let authorIndex = Math.floor(Math.random() * 4);
     let index = 0;
   
     for (let i = 0; i < 3; i++) {
         if (authorIndex === i) {
-            arr.push(author)
+            arr.push(quote.author)
             index++
         }
         let character = Data.characters[Math.floor(Math.random() * Data.characters.length)];
-        while (author === character || arr.includes(character)) {
+        while (quote.author === character || arr.includes(character)) {
             character = Data.characters[Math.floor(Math.random() * Data.characters.length)];
         }
         arr.push(character)
         index++;
     }
     if (authorIndex === 3) {
-        arr.push(author)
+        arr.push(quote.author)
         index++;
     }
     return arr;
   }
-  
-  const arr = returnRandomArr(quote.author);
 
   getData();
 
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Modal" >
-        <Stack.Screen name="Questions" initialParams={{quote: quote, questionNumber: questionNumber, array: arr }} component={Questions} options={{headerShown: false, gestureDirection: 'vertical'}} />
+        <Stack.Screen name="Questions" initialParams={{quote: quote, questionNumber: questionNumber, array: returnRandomArr() }} component={Questions} options={{headerShown: false, gestureDirection: 'vertical'}} />
         <Stack.Screen name="Modal" component={ModalContent} options={{headerShown: false, gestureDirection: 'vertical'}} />
       </Stack.Navigator>
     </NavigationContainer>

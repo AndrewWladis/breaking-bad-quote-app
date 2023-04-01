@@ -1,5 +1,5 @@
 {
-    "characters": ["Mike Ehrmantraut", "Hank Schrader", "Walter White", "Saul Goodman", "Jesse Pinkman", "Gustavo Fring", "Walter White Jr", "Skyler White", "Badger", "Howard Hamlin"],
+    "characters": ["Mike Ehrmantraut", "Hank Schrader", "Walter White", "Saul Goodman", "Jesse Pinkman", "Gustavo Fring", "Walter Jr", "Skyler White", "Badger", "Howard Hamlin", "Todd Alquist"],
     "quotes": [
         {
             "quote": "Alright, I've got the talking pillow now... Okay?",
@@ -214,15 +214,15 @@
             "author": "Skyler White"
         },
         {
-            "quote": "Put me on your magical boat, man, and sail me down your chocolaty river of meth!",
+            "quote": "Put me on your magical boat, man, and sail me down your chocolaty river of ****!",
             "author": "Badger"
         },
         {
-            "quote": "The Universe is Random. Not Inevitable. It's simple Chaos.",
+            "quote": "The Universe is random. Not inevitable. It's simple chaos.",
             "author": "Walter White"
         },
         {
-            "quote": "Sometimes it just feels better not to talk. At All. About Anything. To Anyone.",
+            "quote": "Sometimes it just feels better not to talk. At all. About anything. To anyone.",
             "author": "Walter White"
         },
         {
@@ -267,7 +267,7 @@
         },
         {
             "quote": "Then why don't you just fucking die, already?",
-            "author": "Walter White Jr"
+            "author": "Walter Jr"
         },
         {
             "quote": "He handles the businesses, and I handle him.",
@@ -466,8 +466,48 @@
             "author": "Mike Ehrmantraut"
         }, 
         {
-            "quote": "Who's in charge? Me.",
-            "author": "Walter White"
+            "quote": "Say you want this!",
+            "author": "Jesse Pinkman"
+        }, 
+        {
+            "quote": "Nothing beats cash on hand. That's what Uncle Jack said.",
+            "author": "Todd Alquist"
+        },
+        {
+            "quote": "For five minutes today Chuck didn't hate me. I forgot what that felt like.",
+            "author": "Saul Goodman"
+        }, 
+        {
+            "quote": "At the end of the day, it was him or us, and I chose us and I would do it again.",
+            "author": "Todd Alquist"
+        },
+        {
+            "quote": "Just so you know, this isn't personal.",
+            "author": "Todd Alquist"
+        },
+        {
+            "quote": "We'll talk money once I get this right.",
+            "author": "Todd Alquist"
+        },
+        {
+            "quote": "Uncle Jack says life is what you make it.",
+            "author": "Todd Alquist"
+        },
+        {
+            "quote": "Yo, you were standing right on stage when they handed it to me. I totally graduated high school, dick.",
+            "author": "Jesse Pinkman"
+        },
+        {
+            "quote": "Sorry kid, that's one thing you can never do.",
+            "author": "Mike Ehrmantraut"
+        },
+        {
+            "quote": "I'm no cop killer.",
+            "author": "Jesse Pinkman"
+        },
+        {
+            "quote": "Great family, mom!",
+            "author": "Jesse Pinkman"
         }
     ]
 }
