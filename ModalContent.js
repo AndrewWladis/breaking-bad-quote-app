@@ -5,6 +5,21 @@ import {useNetInfo} from "@react-native-community/netinfo";
 
 export default function ModalContent({ navigation }) {
     const netInfo = useNetInfo();
+      
+    const getData = async () => {
+        let date = new Date();
+        try {
+          const value = await AsyncStorage.getItem('@date')
+          if(value === date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()) {
+            return false;
+          } else {
+            return true;
+          }
+        } catch(e) {
+          // error reading value
+        }
+    }
+
     return (
         <View style={styles.modal} animationType="fade" transparent={true} >
             <View style={styles.modalContent}>
@@ -13,7 +28,7 @@ export default function ModalContent({ navigation }) {
                     <View style={styles.modalBreak}></View>
                     <Text style={styles.modalText}>- A game where you have 20 seconds to guess who said the famous Breaking Bad Quote</Text>
                     <Text style={styles.modalText}>- You can only play once a day, so make your time count!</Text>
-                    {netInfo.isConnected ? <TouchableOpacity onPress={() => navigation.navigate('Questions')} style={styles.startButton}>
+                    {netInfo.isConnected && getData() ? <TouchableOpacity onPress={() => navigation.navigate('Questions')} style={styles.startButton}>
                         <Text style={styles.startText}>Today's Challenge</Text>
                     </TouchableOpacity> : null}
                 </Pressable>

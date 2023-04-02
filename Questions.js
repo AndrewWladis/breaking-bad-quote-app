@@ -26,19 +26,21 @@ function Questions({ navigation }) {
     
     const storeData = async (value) => {
       try {
-        await AsyncStorage.setItem('@questionNumber', value)
+        await AsyncStorage.setItem('@questionNumber', value.toString())
       } catch (e) {
         // saving error
       }
     }
-    
+
     const getData = async () => {
       try {
         const value = await AsyncStorage.getItem('@questionNumber')
-        if(value !== null) {
-          storeData(1)
-        } else if(value >= 11) {
-            navigation.navigate('Modal');
+        const date = await AsyncStorage.getItem('@date')
+        if (date !== date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()) {
+            storeData("1")
+            setQuestionNumber(1)
+        } else {
+            setQuestionNumber(Number(value));
         }
       } catch(e) {
         // error reading value
@@ -61,21 +63,13 @@ function Questions({ navigation }) {
                         .then(response => response.json())
                         .then(data => setQuote(data[questionNumber]))
                     setQuestionNumber(questionNumber + 1);
+                    storeData(questionNumber)
                 }, 1500)
             } else {
-                console.log(questionArr)
-                //redirect to win page
+                setTimeout(() => {
+                    navigation.navigate('Done', { results: questionArr, })
+                }, 1000)
             }
-        }
-    }
-    getData();
-      
-
-    const returnColor = (num) => {
-        if (color === 'normal') {
-            return colorArr[num];
-        } else {
-            return color;
         }
     }
     
@@ -84,6 +78,16 @@ function Questions({ navigation }) {
             .then(response => response.json())
             .then(data => setQuote(data[0]))
         setLoad(false)
+    }
+
+    getData();
+
+    const returnColor = (num) => {
+        if (color === 'normal') {
+            return colorArr[num];
+        } else {
+            return color;
+        }
     }
 
     return (
