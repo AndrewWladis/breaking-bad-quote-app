@@ -14,8 +14,8 @@ export default function ModalContent({ navigation }) {
                     <Text style={styles.modalText}>- A game where you have 20 seconds to guess who said the famous Breaking Bad Quote</Text>
                     <Text style={styles.modalText}>- You can only play once a day, so make your time count!</Text>
                     {netInfo.isConnected ? <TouchableOpacity onPress={() => navigation.navigate('Questions')} style={styles.startButton}>
-                                    <Text style={styles.startText}>Start</Text>
-                                </TouchableOpacity> : null}
+                        <Text style={styles.startText}>Today's Challenge</Text>
+                    </TouchableOpacity> : null}
                 </Pressable>
             </View>
         </View>

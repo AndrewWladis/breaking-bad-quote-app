@@ -1,13 +1,18 @@
 import { View, Text, TouchableOpacity } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useState} from 'react'
 import styles from './styles'
+import {useNetInfo} from "@react-native-community/netinfo";
 
 var Filter = require('bad-words'),
 filter = new Filter();
 
-function Questions({ route }) {
+function Questions({ navigation }) {
     let colorArr = ['#ff3526', '#265cff', '#abab2c', '#39c21d'];
+
     const [color, setColors] = useState('normal');
+    const [isLoad, setLoad] = useState(true)
+    const [questionNumber, setQuestionNumber] = useState(1);
     const [quote, setQuote] = useState({
         quote: {
             quote: 'Loading...',
@@ -16,6 +21,29 @@ function Questions({ route }) {
         options: ['Loading...', 'Loading...', 'Loading...', 'Loading...']
     });
 
+    const netInfo = useNetInfo();
+    
+    const storeData = async (value) => {
+      try {
+        await AsyncStorage.setItem('@questionNumber', value)
+      } catch (e) {
+        // saving error
+      }
+    }
+    
+    const getData = async () => {
+      try {
+        const value = await AsyncStorage.getItem('@questionNumber')
+        if(value !== null) {
+          storeData(1)
+        } else if(value >= 11) {
+            navigation.navigate('Modal');
+        }
+      } catch(e) {
+        // error reading value
+      }
+    }
+
     const isAnswer = (ele) => {
         if (color === 'normal' && quote.quote.author != 'Andy Wladis') {
             if (ele === quote.quote.author) {
@@ -23,16 +51,16 @@ function Questions({ route }) {
             } else {
                 setColors(colorArr[0])
             }
+            setTimeout(() => {
+                setQuestionNumber(questionNumber + 1);
+                setColors('normal')
+                fetch('http://localhost:3000/todayQuote')
+                    .then(response => response.json())
+                    .then(data => setQuote(data[questionNumber]))
+            }, 1500)
         }
     }
-
-    const getData = () => {
-        fetch('http://localhost:3000/todayQuote')
-        .then(response => response.json())
-        .then(data => setQuote(data[route.params.questionNumber - 1]))
-    }
-
-    getData()
+    getData();
       
 
     const returnColor = (num) => {
@@ -42,19 +70,27 @@ function Questions({ route }) {
             return color;
         }
     }
+    
+    if (isLoad) {
+        setLoad(false)
+        fetch('http://localhost:3000/todayQuote')
+            .then(response => response.json())
+            .then(data => setQuote(data[questionNumber - 1]))
+    }
 
     return (
         <View style={styles.questionContainer}>
-            <Text style={styles.questionInfoHeader}>Question: {route.params.questionNumber}</Text>
-            <View style={styles.quoteContainer}>
+            <Text style={styles.questionInfoHeader}>Question: {questionNumber}</Text>
+            {netInfo.isConnected ? <View style={styles.quoteContainer}>
                 <Text style={styles.quote}>"{filter.clean(quote.quote.quote)}"</Text>
-            </View>
+            </View> : () => {navigation.navigate('Modal')} }
             {quote.options.map((element, index) => (
-                    <TouchableOpacity onPress={() => {isAnswer(element)}} key={index} style={[styles.option, { backgroundColor: returnColor(index), }]}>
-                        <Text style={styles.optionText}>{element}</Text>
-                    </TouchableOpacity>
+                <TouchableOpacity onPress={() => {isAnswer(element)}} key={index} style={[styles.option, { backgroundColor: returnColor(index),}]}>
+                    <Text style={styles.optionText}>{element}</Text>
+                </TouchableOpacity>
             ))}
         </View>
+
     )
 }
 

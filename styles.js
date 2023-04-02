@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
         margin: 20,
     },
     startText: {
-        fontSize: 40,
+        fontSize: 32,
         fontFamily: 'HiraginoSans-W6',
         color: 'white',
         padding: 10,
