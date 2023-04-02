@@ -13,6 +13,7 @@ function Questions({ navigation }) {
     const [color, setColors] = useState('normal');
     const [isLoad, setLoad] = useState(true)
     const [questionNumber, setQuestionNumber] = useState(1);
+    const [questionArr, setQuestionArr] = useState('');
     const [quote, setQuote] = useState({
         quote: {
             quote: 'Loading...',
@@ -48,16 +49,23 @@ function Questions({ navigation }) {
         if (color === 'normal' && quote.quote.author != 'Andy Wladis') {
             if (ele === quote.quote.author) {
                 setColors(colorArr[3])
+                setQuestionArr(questionArr + '✅');
             } else {
                 setColors(colorArr[0])
+                setQuestionArr(questionArr + '❌');
             }
-            setTimeout(() => {
-                setQuestionNumber(questionNumber + 1);
-                setColors('normal')
-                fetch('http://localhost:3000/todayQuote')
-                    .then(response => response.json())
-                    .then(data => setQuote(data[questionNumber]))
-            }, 1500)
+            if (questionNumber < 10) {
+                setTimeout(() => {
+                    setColors('normal')
+                    fetch('http://localhost:3000/todayQuote')
+                        .then(response => response.json())
+                        .then(data => setQuote(data[questionNumber]))
+                    setQuestionNumber(questionNumber + 1);
+                }, 1500)
+            } else {
+                console.log(questionArr)
+                //redirect to win page
+            }
         }
     }
     getData();
@@ -72,10 +80,10 @@ function Questions({ navigation }) {
     }
     
     if (isLoad) {
-        setLoad(false)
         fetch('http://localhost:3000/todayQuote')
             .then(response => response.json())
-            .then(data => setQuote(data[questionNumber - 1]))
+            .then(data => setQuote(data[0]))
+        setLoad(false)
     }
 
     return (
