@@ -16,6 +16,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Modal" >
         <Stack.Screen name="Questions" component={Questions} options={{headerShown: false, gestureDirection: 'vertical'}} />
         <Stack.Screen name="Modal" component={ModalContent} options={{headerShown: false, gestureDirection: 'vertical'}} />
+        <Stack.Screen name="Unlimited" component={Unlimited} options={{headerShown: false, gestureDirection: 'vertical'}} />
         <Stack.Screen name="Done" component={Done} options={{headerShown: false, gestureDirection: 'horizontal'}} />
       </Stack.Navigator>
     </NavigationContainer>

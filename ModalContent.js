@@ -31,7 +31,10 @@ export default function ModalContent({ navigation }) {
                     <Text style={styles.modalText}>- You can only play once a day, so make your time count!</Text>
                     {netInfo.isConnected ? <TouchableOpacity onPress={getData} style={styles.startButton}>
                         <Text style={styles.startText}>Today's Challenge</Text>
-                </TouchableOpacity> : null}
+                    </TouchableOpacity> : null}
+                    {netInfo.isConnected ? <TouchableOpacity onPress={() => navigation.navigate('Unlimited')} style={styles.startButton}>
+                      <Text style={styles.startText}>Unlimited</Text>
+                    </TouchableOpacity> : null}
                 </Pressable>
             </View>
         </View>
