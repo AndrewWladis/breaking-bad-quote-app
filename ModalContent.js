@@ -1,7 +1,8 @@
-import { View, Text, Pressable, TouchableOpacity } from 'react-native';
+import { View, Text, Pressable, TouchableOpacity, Alert } from 'react-native';
 import styles from './styles';
 import React from 'react';
 import {useNetInfo} from "@react-native-community/netinfo";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function ModalContent({ navigation }) {
     const netInfo = useNetInfo();
@@ -9,11 +10,11 @@ export default function ModalContent({ navigation }) {
     const getData = async () => {
         let date = new Date();
         try {
-          const value = await AsyncStorage.getItem('@date')
+          const value = await AsyncStorage.getItem('@date');
           if(value === date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()) {
-            return false;
+            Alert.alert('You already played today', 'Please check back in tomorrow for a new round of questions.');
           } else {
-            return true;
+            navigation.navigate('Questions')
           }
         } catch(e) {
           // error reading value
@@ -26,11 +27,11 @@ export default function ModalContent({ navigation }) {
                 <Pressable style={styles.modalInfo}>
                     <Text style={styles.modalHeader}>Welcome to Quote Cook!</Text>
                     <View style={styles.modalBreak}></View>
-                    <Text style={styles.modalText}>- A game where you have 20 seconds to guess who said the famous Breaking Bad Quote</Text>
+                    <Text style={styles.modalText}>- A game where you have to guess who said the famous Breaking Bad Quote</Text>
                     <Text style={styles.modalText}>- You can only play once a day, so make your time count!</Text>
-                    {netInfo.isConnected && getData() ? <TouchableOpacity onPress={() => navigation.navigate('Questions')} style={styles.startButton}>
+                    {netInfo.isConnected ? <TouchableOpacity onPress={getData} style={styles.startButton}>
                         <Text style={styles.startText}>Today's Challenge</Text>
-                    </TouchableOpacity> : null}
+                </TouchableOpacity> : null}
                 </Pressable>
             </View>
         </View>

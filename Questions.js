@@ -59,7 +59,7 @@ function Questions({ navigation }) {
             if (questionNumber < 10) {
                 setTimeout(() => {
                     setColors('normal')
-                    fetch('http://localhost:3000/todayQuote')
+                    fetch('https://quote-cook-backend.onrender.com/todayQuote')
                         .then(response => response.json())
                         .then(data => setQuote(data[questionNumber]))
                     setQuestionNumber(questionNumber + 1);
@@ -74,7 +74,7 @@ function Questions({ navigation }) {
     }
     
     if (isLoad) {
-        fetch('http://localhost:3000/todayQuote')
+        fetch('https://quote-cook-backend.onrender.com/todayQuote')
             .then(response => response.json())
             .then(data => setQuote(data[0]))
         setLoad(false)

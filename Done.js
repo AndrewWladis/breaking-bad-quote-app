@@ -4,10 +4,11 @@ import styles from './styles'
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons'; 
 import * as MediaLibrary from 'expo-media-library';
 import { captureRef } from 'react-native-view-shot';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function Done({ route, navigation }) {
     const [status, requestPermission] = MediaLibrary.usePermissions();
-    const scoreArr = ["You are not the guy. You're not capable of being the guy.", "No more half measures.", "You're the smartest guy I have ever met."];
+    const scoreArr = ["You are not the guy. You're not capable of being the guy.", "No more half measures.", "You're the smartest guy I ever met."];
     let results = route.params.results;
     let score = results.match(/✅/g).length;
     let quotematchingscore = scoreArr[Math.floor(score / 3) - 1];
@@ -18,9 +19,12 @@ function Done({ route, navigation }) {
     }
 
     const storeData = async (value) => {
+        console.log(value, 'hi')
         try {
           await AsyncStorage.setItem('@date', value)
+          console.log('hi')
         } catch (e) {
+            console.log(e)
           // saving error
         }
     }
