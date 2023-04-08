@@ -2,12 +2,12 @@
   "expo": {
     "name": "QuoteCook",
     "slug": "QuoteCook",
-    "version": "1.0.1",
+    "version": "1.0.4",
     "orientation": "portrait",
-    "icon": "./assets/icondark.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/icondark.png",
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,13 +19,15 @@
       "bundleIdentifier": "com.andywladis.QuoteCook"
     },
     "android": {
+      "package": "com.andywladis.QuoteCook",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icondark.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/icondark.png"
+      "favicon": "./assets/icon.png"
     },
     "extra": {
       "eas": {

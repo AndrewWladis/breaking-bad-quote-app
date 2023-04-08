@@ -88,7 +88,7 @@ function Done({ route, navigation }) {
                 <View style={styles.resultQuoteContainer} ref={imageRef}>
                     <Text style={styles.quote}>"{quotematchingscore}"</Text>
                     <Text style={[styles.score, {color: returnColor()}]}>{score}/10</Text>
-                    <Text style={styles.date}>{date.getDate()}/{date.getMonth()}/{date.getFullYear()}</Text>
+                    <Text style={styles.date}>{date.getMonth()}/{date.getDate()}/{date.getFullYear()}</Text>
                 </View>
                 <View style={styles.optionicons}>
                     <TouchableOpacity onPress={onSaveImageAsync} style={styles.save}>

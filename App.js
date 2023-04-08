@@ -1,13 +1,12 @@
 import ModalContent from './ModalContent';
 import Questions from './Questions';
 import Unlimited from './Unlimited';
-import React, {useState} from 'react'
+import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Done from './Done';
 
 const Stack = createNativeStackNavigator();
-
 
 export default function App() {
 
