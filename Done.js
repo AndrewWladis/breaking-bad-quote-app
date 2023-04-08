@@ -5,6 +5,7 @@ import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import * as MediaLibrary from 'expo-media-library';
 import { captureRef } from 'react-native-view-shot';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import LightBar from './LightBar';
 
 function Done({ route, navigation }) {
     const [status, requestPermission] = MediaLibrary.usePermissions();
@@ -85,6 +86,7 @@ function Done({ route, navigation }) {
 
     return (
         <View style={styles.resultContainer}>
+          <LightBar />
                 <View style={styles.resultQuoteContainer} ref={imageRef}>
                     <Text style={styles.quote}>"{quotematchingscore}"</Text>
                     <Text style={[styles.score, {color: returnColor()}]}>{score}/10</Text>

@@ -3,6 +3,7 @@ import styles from './styles';
 import React from 'react';
 import {useNetInfo} from "@react-native-community/netinfo";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import LightBar from './LightBar';
 
 export default function ModalContent({ navigation }) {
     const netInfo = useNetInfo();
@@ -23,8 +24,9 @@ export default function ModalContent({ navigation }) {
 
     return (
         <View style={styles.modal} animationType="fade" transparent={true} >
+            <LightBar />
             <View style={styles.modalContent}>
-                <Pressable style={styles.modalInfo}>
+                <View style={styles.modalInfo}>
                     <Text style={styles.modalHeader}>Welcome to Quote Cook!</Text>
                     <View style={styles.modalBreak}></View>
                     <Text style={styles.modalText}>- A game where you have to guess who said the famous Breaking Bad Quote</Text>
@@ -35,7 +37,7 @@ export default function ModalContent({ navigation }) {
                     {netInfo.isConnected ? <TouchableOpacity onPress={() => navigation.navigate('Unlimited')} style={styles.startButton}>
                       <Text style={styles.startText}>Unlimited</Text>
                     </TouchableOpacity> : null}
-                </Pressable>
+                </View>
             </View>
         </View>
     )

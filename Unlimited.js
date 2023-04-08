@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import React, {useState} from 'react'
 import styles from './styles'
 import {useNetInfo} from "@react-native-community/netinfo";
+import LightBar from './LightBar';
 
 var Filter = require('bad-words'),
 filter = new Filter();
@@ -54,6 +55,7 @@ function Unlimited({ navigation }) {
 
     return (
         <View style={styles.questionContainer}>
+            <LightBar />
             <Text style={styles.questionInfoHeader}>Unlimited</Text>
             {netInfo.isConnected ? <View style={styles.quoteContainer}>
                 <Text style={styles.quote}>"{filter.clean(quote.quote.quote)}"</Text>
