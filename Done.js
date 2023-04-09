@@ -57,7 +57,7 @@ function Done({ route, navigation }) {
             message:
             `Score: ${results}
             "${quotematchingscore}"
-            from QuoteCook`,
+            from Quote Cook, now on iOS`,
             //put link to app store here later
           });
           if (result.action === Share.sharedAction) {
@@ -90,7 +90,7 @@ function Done({ route, navigation }) {
                 <View style={styles.resultQuoteContainer} ref={imageRef}>
                     <Text style={styles.quote}>"{quotematchingscore}"</Text>
                     <Text style={[styles.score, {color: returnColor()}]}>{score}/10</Text>
-                    <Text style={styles.date}>{date.getMonth()}/{date.getDate()}/{date.getFullYear()}</Text>
+                    <Text style={styles.date}>{date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}</Text>
                 </View>
                 <View style={styles.optionicons}>
                     <TouchableOpacity onPress={onSaveImageAsync} style={styles.save}>
