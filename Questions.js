@@ -11,7 +11,8 @@ filter = new Filter();
 function Questions({ navigation }) {
     let colorArr = ['#ff3526', '#265cff', '#abab2c', '#39c21d'];
     const [color, setColors] = useState('normal');
-    const [isLoad, setLoad] = useState(true)
+    const [isLoad, setLoad] = useState(true);
+    const [quoteOpacity, setQuoteOpacity] = useState(1)
     const [questionNumber, setQuestionNumber] = useState(1);
     const [questionArr, setQuestionArr] = useState('');
     const [quote, setQuote] = useState({
@@ -23,6 +24,15 @@ function Questions({ navigation }) {
     });
 
     const netInfo = useNetInfo();
+
+
+    useEffect(() => {
+        if (quote.quote.quote != 'Loading...') {
+            setQuoteOpacity(1)
+        } else {
+            setQuoteOpacity(0)
+        }
+    }, [quote]);
 
     function blankState() {
         setQuote({
@@ -80,7 +90,6 @@ function Questions({ navigation }) {
                     navigation.navigate('Done', { results: '✅' + questionArr, })
                 }, 1000)
             }
-            console.log(questionArr, questionNumber)
         }
     }
     if (isLoad) {
@@ -105,7 +114,7 @@ function Questions({ navigation }) {
             <LightBar />
             <Text style={styles.questionInfoHeader}>Question: {questionNumber}</Text>
             {netInfo.isConnected ? <View style={styles.quoteContainer}>
-                <Text style={styles.quote}>"{filter.clean(quote.quote.quote)}"</Text>
+                <Text style={[styles.quote, {opacity: quoteOpacity}]}>"{filter.clean(quote.quote.quote)}"</Text>
             </View> : () => {navigation.navigate('Modal')} }
             {quote.options.map((element, index) => (
                 <TouchableOpacity onPress={() => {isAnswer(element)}} key={index} style={[styles.option, { backgroundColor: returnColor(index),}]}>
