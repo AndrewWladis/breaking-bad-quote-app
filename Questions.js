@@ -27,7 +27,7 @@ function Questions({ navigation }) {
 
 
     useEffect(() => {
-        if (quote.quote.quote != 'Loading...') {
+        if (quote.quote.quote != 'Loading..') {
             setQuoteOpacity(1)
         } else {
             setQuoteOpacity(0)
@@ -37,7 +37,7 @@ function Questions({ navigation }) {
     function blankState() {
         setQuote({
             quote: {
-                quote: 'Loading...',
+                quote: 'Loading..',
                 author: 'Andy Wladis'
             },
             options: [' ', ' ', ' ', ' ']

@@ -12,7 +12,7 @@ function Done({ route, navigation }) {
     const scoreArr = ["You are not the guy. You're not capable of being the guy.", "No more half measures.", "You're the smartest guy I ever met."];
     let results = route.params.results;
     let score = results.match(/✅/g).length;
-    let quotematchingscore = scoreArr[Math.floor(score / 3) - 1];
+    let quotematchingscore = scoreArr[Math.floor(score / 3)];
     let date = new Date();
 
     if (status === null) {
@@ -20,10 +20,8 @@ function Done({ route, navigation }) {
     }
 
     const storeData = async (value) => {
-        console.log(value, 'hi')
         try {
           await AsyncStorage.setItem('@date', value)
-          console.log('hi')
         } catch (e) {
             console.log(e)
           // saving error
@@ -55,7 +53,7 @@ function Done({ route, navigation }) {
         try {
           const result = await Share.share({
             message:
-            `Score: ${results}
+            `Score on ${date.getDate() + '/' + date.getMonth()}: ${results}
             "${quotematchingscore}"
             from Quote Cook, now on iOS`,
             //put link to app store here later
@@ -93,10 +91,10 @@ function Done({ route, navigation }) {
                     <Text style={styles.date}>{date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}</Text>
                 </View>
                 <View style={styles.optionicons}>
-                    <TouchableOpacity onPress={onSaveImageAsync} style={styles.save}>
+                    <TouchableOpacity onPress={onSaveImageAsync} style={styles.share}>
                         <MaterialIcons name="add-photo-alternate" size={75} color="white" />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => {navigation.navigate('Modal')}} style={styles.home}>
+                    <TouchableOpacity onPress={() => {navigation.navigate('Modal')}} style={styles.share}>
                         <MaterialIcons name="home-filled" size={80} color="white" />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={onShare} style={styles.share}>

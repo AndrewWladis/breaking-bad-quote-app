@@ -14,15 +14,6 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 27,
     },
-    home: {
-        backgroundColor: '#bbc236',
-        borderRadius: 35,
-        padding: 5,
-        alignItems: "center",
-        justifyContent: "center",
-        width: 96,
-        height: 96
-    },
     modal: {
       flex: 1,
       justifyContent: 'center',
@@ -119,7 +110,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "space-evenly",
         alignItems: "center",
-        backgroundColor: '#424242',
+        backgroundColor: '#171717',
     },
     resultQuoteContainer: {
         height: '50%',
@@ -127,29 +118,25 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: "center",
         justifyContent: "space-evenly",
-        backgroundColor: '#171717',
-    },
-    save: {
-        backgroundColor: '#34abeb',
-        borderRadius: 35,
-        padding: 5,
-        alignItems: "center",
-        justifyContent: "center",
-        width: 96,
-        height: 96
+        borderColor: '#80f28e',
+        borderWidth: 2,
+        borderRadius: 25
     },
     score: {
         fontSize: 110,
         fontWeight: "900"
     },
     share: {
-        backgroundColor: '#53c429',
-        borderRadius: 35,
         padding: 5,
         alignItems: "center",
         justifyContent: "center",
         width: 96,
-        height: 96
+        height: 96,
+        backgroundColor: '#53c429',
+        borderRadius: 35,
+        shadowColor: "green",
+        shadowOpacity: 1,
+        shadowOffset: {width: 0, height: 4},
     },
     startButton: {
         backgroundColor: 'green',
