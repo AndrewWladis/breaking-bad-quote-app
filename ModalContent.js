@@ -31,7 +31,7 @@ export default function ModalContent({ navigation }) {
                     <View style={styles.modalBreak}></View>
                     <Text style={styles.modalText}>- A game where you have to guess who said the famous Breaking Bad Quote</Text>
                     <Text style={styles.modalText}>- You can only play once a day, so make your time count!</Text>
-                    {netInfo.isConnected ? [ [getData, "Today's Challenge"], [() => navigation.navigate('Unlimited'), "Unlimited"], [() => navigation.navigate('TimedUnlimited'), "Timed Unlimited"]].map((arr) => (
+                    {netInfo.isConnected ? [ [getData, "Today's Challenge"], [() => navigation.navigate('Unlimited'), "Unlimited"]].map((arr) => (
                       <TouchableOpacity onPress={arr[0]} style={styles.startButton}>
                         <Text style={styles.startText}>{arr[1]}</Text>
                       </TouchableOpacity>
