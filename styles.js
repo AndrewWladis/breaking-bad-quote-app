@@ -14,6 +14,13 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 27,
     },
+    headerContainer: {
+        width: '100%',
+        marginTop: 45,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
+    },
     modal: {
       flex: 1,
       justifyContent: 'center',
@@ -82,10 +89,11 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     questionInfoHeader: {
-        fontSize: 35,
-        marginTop: 45,
+        fontSize: '50%',
         fontWeight: 'bold',
         color: 'white',
+        margin: 0,
+        padding: 0,
         textAlign: 'center'
     },
     quote: {
@@ -148,6 +156,27 @@ const styles = StyleSheet.create({
         fontFamily: 'HiraginoSans-W6',
         color: 'white',
         padding: 10,
+    },
+    timer: {
+        fontSize: '45%',
+        fontWeight: '900',
+        color: 'white',
+        margin: 0,
+        width: '20%',
+        borderColor: '#80f28e',
+        //change this to red once it gets below 5
+        borderWidth: 4,
+        textAlign: 'center',
+        borderRadius: '25%'
+    },
+    unlimitedHeader: {
+        fontSize: '50%',
+        fontWeight: 'bold',
+        color: 'white',
+        margin: 0,
+        padding: 0,
+        textAlign: 'center',
+        marginTop: '10%'
     }
 });
 

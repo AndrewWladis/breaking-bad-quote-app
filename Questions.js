@@ -15,6 +15,7 @@ function Questions({ navigation }) {
     const [quoteOpacity, setQuoteOpacity] = useState(1)
     const [questionNumber, setQuestionNumber] = useState(1);
     const [questionArr, setQuestionArr] = useState('');
+    const [timer, setTimer] = useState(15);
     const [quote, setQuote] = useState({
         quote: {
             quote: 'Loading...',
@@ -25,10 +26,24 @@ function Questions({ navigation }) {
 
     const netInfo = useNetInfo();
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+          setTimer(timer => timer - 1);
+      
+          if (timer <= 0) {
+            isAnswer('Andy');
+            clearInterval(interval);
+            setTimer(0)
+          }
+        }, 1000);
+        
+        return () => clearInterval(interval);
+      }, [isAnswer, timer]);  
 
     useEffect(() => {
         if (quote.quote.quote != 'Loading..') {
             setQuoteOpacity(1)
+            setTimer(15)
         } else {
             setQuoteOpacity(0)
         }
@@ -66,6 +81,7 @@ function Questions({ navigation }) {
         // error reading value
       }
     }
+
     const isAnswer = (ele) => {
         if (color === 'normal' && quote.quote.author != 'Andy Wladis') {
             if (ele === quote.quote.author) {
@@ -84,6 +100,7 @@ function Questions({ navigation }) {
                         .then(data => setQuote(data[questionNumber]))
                     setQuestionNumber(questionNumber + 1);
                     storeData(questionNumber)
+
                 }, 1500)
             } else {
                 setTimeout(() => {
@@ -112,7 +129,10 @@ function Questions({ navigation }) {
     return (
         <View style={styles.questionContainer}>
             <LightBar />
-            <Text style={styles.questionInfoHeader}>Question: {questionNumber}</Text>
+            <View style={styles.headerContainer}>
+                <Text style={styles.questionInfoHeader}>Question: {questionNumber}</Text>
+                <Text style={[styles.timer]}>{timer}</Text>
+            </View>
             {netInfo.isConnected ? <View style={styles.quoteContainer}>
                 <Text style={[styles.quote, {opacity: quoteOpacity}]}>"{filter.clean(quote.quote.quote)}"</Text>
             </View> : () => {navigation.navigate('Modal')} }
