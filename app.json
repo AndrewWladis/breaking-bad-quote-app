@@ -2,7 +2,7 @@
   "expo": {
     "name": "Quote Cook",
     "slug": "QuoteCook",
-    "version": "1.0.7",
+    "version": "1.1.6",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",

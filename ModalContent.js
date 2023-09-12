@@ -1,13 +1,13 @@
-import { View, Text, Pressable, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, Easing, Animated, Alert } from 'react-native';
 import styles from './styles';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNetInfo} from "@react-native-community/netinfo";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LightBar from './LightBar';
 
 export default function ModalContent({ navigation }) {
     const netInfo = useNetInfo();
-      
+
     const getData = async () => {
         let date = new Date();
         try {
@@ -29,10 +29,10 @@ export default function ModalContent({ navigation }) {
                 <View style={styles.modalInfo}>
                     <Text style={styles.modalHeader}>Welcome to Quote Cook!</Text>
                     <View style={styles.modalBreak}></View>
-                    <Text style={styles.modalText}>- A game where you have to guess who said the famous Breaking Bad Quote</Text>
+                    <Text style={styles.modalText}>- A game where you have 15 seconds to guess who said the famous Breaking Bad Quote</Text>
                     <Text style={styles.modalText}>- You can only play once a day, so make your time count!</Text>
                     {netInfo.isConnected ? [ [getData, "Today's Challenge"], [() => navigation.navigate('Unlimited'), "Unlimited"]].map((arr) => (
-                      <TouchableOpacity onPress={arr[0]} style={styles.startButton}>
+                      <TouchableOpacity key={arr[1]} onPress={arr[0]} style={styles.startButton}>
                         <Text style={styles.startText}>{arr[1]}</Text>
                       </TouchableOpacity>
                     )) : null}

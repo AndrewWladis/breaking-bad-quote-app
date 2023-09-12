@@ -9,12 +9,12 @@ import LightBar from './LightBar';
 
 function Done({ route, navigation }) {
     const [status, requestPermission] = MediaLibrary.usePermissions();
-    const scoreArr = ["You are not the guy. You're not capable of being the guy.", "No more half measures.", "You're the smartest guy I ever met."];
+    const scoreArr = ["You are not the guy. You're not capable of being the guy.", "No more half measures.", "You're the smartest guy I ever met.", "You're the smartest guy I ever met."];
     let results = route.params.results;
     let score = results.match(/✅/g).length;
     let quotematchingscore = scoreArr[Math.floor(score / 3)];
     let date = new Date();
-
+    
     if (status === null) {
         requestPermission();
     }
@@ -27,7 +27,6 @@ function Done({ route, navigation }) {
           // saving error
         }
     }
-
 
     storeData(date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear())
 
@@ -53,7 +52,7 @@ function Done({ route, navigation }) {
         try {
           const result = await Share.share({
             message:
-            `Score on ${date.getDate() + '/' + date.getMonth()}: ${results}
+            `Score on ${(date.getMonth() + 1) + '/' + date.getDate()}: ${results}
             "${quotematchingscore}"
             from Quote Cook, now on iOS`,
             //put link to app store here later

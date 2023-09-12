@@ -48,7 +48,8 @@ const styles = StyleSheet.create({
         marginVertical: 5
     },
     modalInfo: {
-        width: 375,
+        width: '97%',
+        height: '85%',
         justifyContent: 'space-evenly',
         alignItems: 'center',
         borderColor: '#80f28e',
@@ -164,7 +165,6 @@ const styles = StyleSheet.create({
         margin: 0,
         width: '20%',
         borderColor: '#80f28e',
-        //change this to red once it gets below 5
         borderWidth: 4,
         textAlign: 'center',
         borderRadius: '25%'
