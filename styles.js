@@ -1,6 +1,10 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+    buttons: {
+        alignItems: 'center',
+        marginTop: 40
+    },
     container: {
       flex: 1,
       alignItems: 'center',
@@ -45,22 +49,19 @@ const styles = StyleSheet.create({
         fontWeight: 600,
         marginTop: 5,
         textAlign: 'center',
-        marginVertical: 5
+        marginVertical: 10,
+        marginHorizontal: 5,
     },
     modalInfo: {
         width: '97%',
-        height: '85%',
-        justifyContent: 'space-evenly',
+        height: '70%',
         alignItems: 'center',
-        borderColor: '#80f28e',
-        borderWidth: 2,
-        borderRadius: 25
     },
     modalText: {
-        fontSize: 30,
+        fontSize: 27,
         color: '#80f28e',
-        paddingHorizontal: 20,
-        paddingVertical: 15,
+        paddingHorizontal: 10,
+        paddingVertical: 10,
         textAlign: 'center'
     },
     option: {
@@ -129,6 +130,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-evenly",
         borderColor: '#80f28e',
         borderWidth: 2,
+        backgroundColor: '#171717',
         borderRadius: 25
     },
     score: {
@@ -148,7 +150,8 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 0, height: 4},
     },
     startButton: {
-        backgroundColor: 'green',
+        borderColor: 'green',
+        borderWidth: 3,
         borderRadius: 23,
         margin: 20,
     },
