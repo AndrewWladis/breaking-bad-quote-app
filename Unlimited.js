@@ -31,7 +31,7 @@ function Unlimited({ navigation }) {
             }
             setTimeout(() => {
                 setColors('normal')
-                fetch('https://quote-cook.cyclic.app/randomQuote')
+                fetch('https://breaking-bad-1iwe.onrender.com/randomQuote')
                     .then(response => response.json())
                     .then(data => setQuote(data))
             }, 1500)
@@ -39,7 +39,7 @@ function Unlimited({ navigation }) {
     }
     
     if (isLoad) {
-        fetch('https://quote-cook.cyclic.app/randomQuote')
+        fetch('https://breaking-bad-1iwe.onrender.com/randomQuote')
             .then(response => response.json())
             .then(data => setQuote(data))
         setLoad(false)

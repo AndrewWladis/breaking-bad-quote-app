@@ -95,7 +95,7 @@ function Questions({ navigation }) {
                 setTimeout(() => {
                     setColors('normal')
                     blankState()
-                    fetch('https://quote-cook.cyclic.app/todayQuote')
+                    fetch('https://breaking-bad-1iwe.onrender.com/todayQuote')
                         .then(response => response.json())
                         .then(data => setQuote(data[questionNumber]))
                     setQuestionNumber(questionNumber + 1);
@@ -110,7 +110,7 @@ function Questions({ navigation }) {
         }
     }
     if (isLoad) {
-        fetch('https://quote-cook.cyclic.app/todayQuote')
+        fetch('https://breaking-bad-1iwe.onrender.com/todayQuote')
             .then(response => response.json())
             .then(data => setQuote(data[0]))
         setLoad(false)
