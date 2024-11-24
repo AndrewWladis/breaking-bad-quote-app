@@ -8,16 +8,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import LightBar from './LightBar';
 
 function Done({ route, navigation }) {
-    const [status, requestPermission] = MediaLibrary.usePermissions();
     const scoreArr = ["You are not the guy. You're not capable of being the guy.", "No more half measures.", "You're the smartest guy I ever met.", "You're the smartest guy I ever met."];
     let results = route.params.results;
     let score = results.match(/✅/g).length;
     let quotematchingscore = scoreArr[Math.floor(score / 3)];
     let date = new Date();
-    
-    if (status === null) {
-        requestPermission();
-    }
 
     const storeData = async (value) => {
         try {
@@ -27,26 +22,6 @@ function Done({ route, navigation }) {
           // saving error
         }
     }
-
-    storeData(date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear())
-
-    const imageRef = useRef();
-
-    const onSaveImageAsync = async () => {
-        try {
-          const localUri = await captureRef(imageRef, {
-            height: 440,
-            quality: 1,
-          });
-    
-          await MediaLibrary.saveToLibraryAsync(localUri);
-          if (localUri) {
-            Alert.alert('Score saved to photos!');
-          }
-        } catch (e) {
-          console.log(e);
-        }
-    };
 
     const onShare = async () => {
         try {
@@ -84,7 +59,7 @@ function Done({ route, navigation }) {
     return (
         <View style={styles.resultContainer}>
           <LightBar />
-                <View style={styles.resultQuoteContainer} ref={imageRef}>
+                <View style={styles.resultQuoteContainer}>
                     <Text style={styles.endQuote}>"{quotematchingscore}"</Text>
                     <Text style={[styles.score, {color: returnColor()}]}>{score}/10</Text>
                     <Text style={styles.date}>{date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}</Text>
