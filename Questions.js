@@ -2,8 +2,8 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useState, useEffect} from 'react'
 import styles from './styles'
-import {useNetInfo} from "@react-native-community/netinfo";
 import LightBar from './LightBar';
+import data from './data.json'
 
 var Filter = require('bad-words'),
 filter = new Filter();
@@ -15,6 +15,7 @@ function Questions({ navigation }) {
     const [quoteOpacity, setQuoteOpacity] = useState(1)
     const [questionNumber, setQuestionNumber] = useState(1);
     const [questionArr, setQuestionArr] = useState('');
+    const [quoteArr, setQuoteArr] = useState([]);
     const [timer, setTimer] = useState(15);
     const [quote, setQuote] = useState({
         quote: {
@@ -24,7 +25,71 @@ function Questions({ navigation }) {
         options: ['Loading...', 'Loading...', 'Loading...', 'Loading...']
     });
 
-    const netInfo = useNetInfo();
+
+
+function isEvenDay() {
+    return new Date().getDay() % 2 == 0;
+}
+
+function returnArr(quote) {
+    let arr = [];
+    let num = 0;
+
+    while (num < quote.quote.length) {
+        num += 4;
+    }
+
+    let quoteIndex = num - quote.quote.length;
+    let index = quote.quote.split(/([Ee])/).length - 1
+    while (arr.length < 4) {
+        if (quoteIndex === arr.length) {
+            arr.push(quote.author)
+        } else {
+            index *= 2;
+            if (index < 0) {
+                index *= -2;
+            }
+            if (index >= data.quotes.length) {
+                index -= data.quotes.length;
+            }
+            if (!arr.includes(data.quotes[index].author) && data.quotes[index].author != quote.author) {
+                arr.push(data.quotes[index].author)
+            } else {
+                index -= 1
+            }
+        }
+    }
+    return arr;
+}
+
+    function returnQuoteFromNum(big) {
+        let reversedArr;
+
+        if (isEvenDay()) {
+            reversedArr = data.quotes.slice();
+        } else {
+            reversedArr = data.quotes.slice().reverse();
+        }
+
+        let arr = [];
+
+        for (let i = 4; i < 14; i++) {
+            let num = big * (i * 2);
+            while (num >= reversedArr.length) {
+                num -= reversedArr.length;
+            }
+            let currentQuote = reversedArr[num];
+            arr.push({
+                quote: currentQuote,
+                options: returnArr(currentQuote)
+            })
+        }
+
+        
+        setQuoteArr(arr)
+        setQuote(arr[0])
+    }
+
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -67,21 +132,6 @@ function Questions({ navigation }) {
       }
     }
 
-    const getData = async () => {
-      try {
-        const value = await AsyncStorage.getItem('@questionNumber')
-        const date = await AsyncStorage.getItem('@date')
-        if (date !== date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()) {
-            storeData("1")
-            setQuestionNumber(1)
-        } else {
-            setQuestionNumber(Number(value));
-        }
-      } catch(e) {
-        // error reading value
-      }
-    }
-
     const isAnswer = (ele) => {
         if (color === 'normal' && quote.quote.author != 'Andy Wladis') {
             if (ele === quote.quote.author) {
@@ -95,12 +145,8 @@ function Questions({ navigation }) {
                 setTimeout(() => {
                     setColors('normal')
                     blankState()
-                    fetch('https://breaking-bad-1iwe.onrender.com/todayQuote')
-                        .then(response => response.json())
-                        .then(data => setQuote(data[questionNumber]))
+                    setQuote(quoteArr[questionNumber])
                     setQuestionNumber(questionNumber + 1);
-                    storeData(questionNumber)
-
                 }, 1500)
             } else {
                 setTimeout(() => {
@@ -109,14 +155,6 @@ function Questions({ navigation }) {
             }
         }
     }
-    if (isLoad) {
-        fetch('https://breaking-bad-1iwe.onrender.com/todayQuote')
-            .then(response => response.json())
-            .then(data => setQuote(data[0]))
-        setLoad(false)
-    }
-
-    getData();
 
     const returnColor = (num) => {
         if (color === 'normal') {
@@ -126,6 +164,10 @@ function Questions({ navigation }) {
         }
     }
 
+    useEffect(() => {
+        returnQuoteFromNum(Math.floor((new Date().getDay() + 3) * (new Date().getDate() + new Date().getMonth())))
+    }, [])
+
     return (
         <View style={styles.questionContainer}>
             <LightBar />
@@ -133,9 +175,9 @@ function Questions({ navigation }) {
                 <Text style={styles.questionInfoHeader}>Question: {questionNumber}</Text>
                 <Text style={[styles.timer]}>{timer}</Text>
             </View>
-            {netInfo.isConnected ? <View style={styles.quoteContainer}>
+            <View style={styles.quoteContainer}>
                 <Text style={[styles.quote, {opacity: quoteOpacity}]}>"{filter.clean(quote.quote.quote)}"</Text>
-            </View> : () => {navigation.navigate('Modal')} }
+            </View>
             {quote.options.map((element, index) => (
                 <TouchableOpacity onPress={() => {isAnswer(element)}} key={index} style={[styles.option, { backgroundColor: returnColor(index),}]}>
                     <Text style={styles.optionText}>{element}</Text>

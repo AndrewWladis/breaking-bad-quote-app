@@ -17,6 +17,15 @@ const styles = StyleSheet.create({
         fontStyle: 'italic',
         fontWeight: '700',
         fontSize: 27,
+        marginVertical: 20,
+    },
+    endQuote: {
+        color: '#b5b5b5',
+        textAlign: 'center',
+        fontStyle: 'italic',
+        fontWeight: '400',
+        fontSize: 25,
+        padding: 20,
     },
     headerContainer: {
         width: '100%',
@@ -30,12 +39,6 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#171717'
-    }, 
-    modalBreak: {
-        borderBottomColor: '#80f28e',
-        alignSelf: 'stretch',
-        marginHorizontal: 10,
-        borderWidth: 1
     },
     modalContent: {
       flex: 1,
@@ -44,9 +47,9 @@ const styles = StyleSheet.create({
       backgroundColor: '#171717'
     },
     modalHeader: {
-        fontSize: 50,
-        color: '#0bb520',
-        fontWeight: 600,
+        fontSize: 55,
+        color: '#21A179',
+        fontWeight: 800,
         marginTop: 5,
         textAlign: 'center',
         marginVertical: 10,
@@ -56,6 +59,7 @@ const styles = StyleSheet.create({
         width: '97%',
         height: '70%',
         alignItems: 'center',
+        justifyContent: 'space-evenly',
     },
     modalText: {
         fontSize: 27,
@@ -73,9 +77,8 @@ const styles = StyleSheet.create({
     },
     optionicons: {
         width: '100%',
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: "center",
-        justifyContent: "space-evenly"
     },
     optionText: {
         color: 'white',
@@ -118,7 +121,7 @@ const styles = StyleSheet.create({
     },
     resultContainer: {
         flex: 1,
-        justifyContent: "space-evenly",
+        justifyContent: 'center',
         alignItems: "center",
         backgroundColor: '#171717',
     },
@@ -127,11 +130,7 @@ const styles = StyleSheet.create({
         width: '96%',
         borderRadius: 10,
         alignItems: "center",
-        justifyContent: "space-evenly",
-        borderColor: '#80f28e',
-        borderWidth: 2,
         backgroundColor: '#171717',
-        borderRadius: 25
     },
     score: {
         fontSize: 110,
@@ -150,13 +149,13 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 0, height: 4},
     },
     startButton: {
-        borderColor: 'green',
-        borderWidth: 3,
-        borderRadius: 23,
-        margin: 20,
+        borderRadius: 10,
+        margin: 10,
+        padding: 10,
+        backgroundColor: '#21A179'
     },
     startText: {
-        fontSize: 32,
+        fontSize: 30,
         fontFamily: 'HiraginoSans-W6',
         color: 'white',
         padding: 10,

@@ -85,19 +85,14 @@ function Done({ route, navigation }) {
         <View style={styles.resultContainer}>
           <LightBar />
                 <View style={styles.resultQuoteContainer} ref={imageRef}>
-                    <Text style={styles.quote}>"{quotematchingscore}"</Text>
+                    <Text style={styles.endQuote}>"{quotematchingscore}"</Text>
                     <Text style={[styles.score, {color: returnColor()}]}>{score}/10</Text>
                     <Text style={styles.date}>{date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}</Text>
-                </View>
-                <View style={styles.optionicons}>
-                    <TouchableOpacity onPress={onSaveImageAsync} style={styles.share}>
-                        <MaterialIcons name="add-photo-alternate" size={75} color="white" />
+                    <TouchableOpacity onPress={() => {navigation.navigate('Modal')}} style={styles.startButton}>
+                      <Text style={styles.startText}>Back Home</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => {navigation.navigate('Modal')}} style={styles.share}>
-                        <MaterialIcons name="home-filled" size={80} color="white" />
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={onShare} style={styles.share}>
-                        <MaterialCommunityIcons name="share" size={80} color="white" />
+                    <TouchableOpacity onPress={onShare} style={styles.startButton}>
+                      <Text style={styles.startText}>Share</Text>
                     </TouchableOpacity>
                 </View>
         </View>

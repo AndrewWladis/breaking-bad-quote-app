@@ -3,9 +3,41 @@ import React, {useState} from 'react'
 import styles from './styles'
 import {useNetInfo} from "@react-native-community/netinfo";
 import LightBar from './LightBar';
+import data from './data.json'
 
 var Filter = require('bad-words'),
 filter = new Filter();
+
+function returnArr(quote) {
+    let arr = [];
+    let num = 0;
+
+    while (num < quote.quote.length) {
+        num += 4;
+    }
+
+    let quoteIndex = num - quote.quote.length;
+    let index = quote.quote.split(/([Ee])/).length - 1
+    while (arr.length < 4) {
+        if (quoteIndex === arr.length) {
+            arr.push(quote.author)
+        } else {
+            index *= 2;
+            if (index < 0) {
+                index *= -2;
+            }
+            if (index >= data.quotes.length) {
+                index -= data.quotes.length;
+            }
+            if (!arr.includes(data.quotes[index].author) && data.quotes[index].author != quote.author) {
+                arr.push(data.quotes[index].author)
+            } else {
+                index -= 1
+            }
+        }
+    }
+    return arr;
+}
 
 function Unlimited({ navigation }) {
     let colorArr = ['#ff3526', '#265cff', '#abab2c', '#39c21d'];
@@ -31,17 +63,19 @@ function Unlimited({ navigation }) {
             }
             setTimeout(() => {
                 setColors('normal')
-                fetch('https://breaking-bad-1iwe.onrender.com/randomQuote')
-                    .then(response => response.json())
-                    .then(data => setQuote(data))
+                setQuote({
+                    quote: data.quotes[Math.floor(Math.random() * data.quotes.length) - 1],
+                    options: returnArr(data.quotes[Math.floor(Math.random() * data.quotes.length) - 1])
+                })
             }, 1500)
         }
     }
     
     if (isLoad) {
-        fetch('https://breaking-bad-1iwe.onrender.com/randomQuote')
-            .then(response => response.json())
-            .then(data => setQuote(data))
+        setQuote({
+            quote: data.quotes[Math.floor(Math.random() * data.quotes.length) - 1],
+            options: returnArr(data.quotes[Math.floor(Math.random() * data.quotes.length) - 1])
+        })
         setLoad(false)
     }
 

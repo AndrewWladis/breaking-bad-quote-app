@@ -1,4 +1,4 @@
-{ 
+{
     "quotes": [
         {
             "quote": "Alright, I've got the talking pillow now... Okay?",
@@ -25,15 +25,11 @@
             "author": "Mike Ehrmantraut"
         },
         {
-            "quote": "The thing is, if you just do stuff and nothing happens, what's it all mean? What's the point? Oh right, this whole thing is about self-acceptance.",
-            "author": "Jesse Pinkman"
-        },
-        {
             "quote": "You are a time bomb, tick-tick-ticking. And I have no intention of being around for the boom.",
             "author": "Mike Ehrmantraut"
         },
         {
-            "quote": "Don't drink and drive but if you do, call me.",
+            "quote": "Don't drink and drive, but if you do call me.",
             "author": "Saul Goodman"
         },
         {
@@ -57,10 +53,6 @@
             "author": "Walter White"
         },
         {
-            "quote": "Because I say so.",
-            "author": "Walter White"
-        },
-        {
             "quote": "I'm not in the meth business. I'm in the empire business.",
             "author": "Walter White"
         },
@@ -69,7 +61,7 @@
             "author": "Walter White"
         },
         {
-            "quote": "I watched Jane die. I was there. And I watched her die.",
+            "quote": "I watched Jane die. I was there.",
             "author": "Walter White"
         },
         {
@@ -78,10 +70,6 @@
         },
         {
             "quote": "Do you know how much I make a year? I mean, even if I told you, you wouldn't believe it.",
-            "author": "Walter White"
-        },
-        {
-            "quote": "Jesus! Just grow some fucking balls!",
             "author": "Walter White"
         },
         {
@@ -130,10 +118,6 @@
         },
         {
             "quote": "Better call Saul!",
-            "author": "Saul Goodman"
-        },
-        {
-            "quote": "You do seem to have a little “shit creek” action going… You know, FYI, you can buy a paddle.",
             "author": "Saul Goodman"
         },
         {
@@ -221,10 +205,6 @@
             "author": "Mike Ehrmantraut"
         },
         {
-            "quote": "If you don't know who I am, then maybe your best course would be to tread lightly.",
-            "author": "Walter White"
-        },
-        {
             "quote": "You need to stop focusing on the darkness behind you. The past is the past. Nothing can change what we've done.",
             "author": "Walter White"
         },
@@ -233,11 +213,11 @@
             "author": "Jesse Pinkman"
         },
         {
-            "quote": "You don't want a criminal lawyer. You want a criminal lawyer.",
+            "quote": "When the going gets tough, you don't want a criminal lawyer, you want a criminal lawyer.",
             "author": "Jesse Pinkman"
         },
         {
-            "quote": "I Won.",
+            "quote": "I won.",
             "author": "Walter White"
         },
         {
@@ -285,7 +265,7 @@
             "author": "Walter White"
         },
         {
-            "quote": "Let's see, how shouild I put this? I'm in, you're out.",
+            "quote": "Let's see, how should I put this? I'm in, you're out.",
             "author": "Walter White"
         },
         {
@@ -301,7 +281,7 @@
             "author": "Walter White"
         },
         {
-            "quote": "Jesse, you asked me if I was in the meth business or the money business.. Neither. I'm in the empire business.",
+            "quote": "Jesse, you asked me if I was in the meth business or the money business. Neither. I'm in the empire business.",
             "author": "Walter White"
         },
         {
@@ -321,7 +301,7 @@
             "author": "Hank Schrader"
         },
         {
-            "quote": "Fifty years I spent like that. Finding myself awake at three in the morning. But you know what? Ever since my diagnosis, I sleep just fine.",
+            "quote": "Fifty years I spent like that. Finding myself awake at three in the morning.",
             "author": "Walter White"
         },
         {
@@ -329,7 +309,7 @@
             "author": "Walter White"
         },
         {
-            "quote": "I want my kids back. I want my life back. Please tell me – How much is enough? How big does this pile have to be?",
+            "quote": "I want my kids back. I want my life back. Please tell me - How much is enough? How big does this pile have to be?",
             "author": "Skyler White"
         },
         {
@@ -369,7 +349,7 @@
             "author": "Walter White"
         },
         {
-            "quote": "The fun's over. From here on out, I'm Mr. Low Profile. Just another douche bag with a job and three pairs of Dockers. If I'm lucky, month from now, best-case scenario, I'm managing a Cinnabon in Omaha.",
+            "quote": "If I'm lucky, month from now, best-case scenario, I'm managing a Cinnabon in Omaha.",
             "author": "Saul Goodman"
         },
         {
@@ -377,7 +357,7 @@
             "author": "Walter White"
         },
         {
-            "quote": "I could have saved her",
+            "quote": "I could have saved her.",
             "author": "Walter White"
         },
         {
@@ -437,10 +417,6 @@
             "author": "Saul Goodman"
         },
         {
-            "quote": "I was more than a willing participant.",
-            "author": "Saul Goodman"
-        }, 
-        {
             "quote": "If I was your age, starting fresh, I would go to Alaska.",
             "author": "Mike Ehrmantraut"
         },
@@ -462,10 +438,6 @@
         }, 
         {
             "quote": "At the end of the day, it was him or us, and I chose us and I would do it again.",
-            "author": "Todd Alquist"
-        },
-        {
-            "quote": "Just so you know, this isn't personal.",
             "author": "Todd Alquist"
         },
         {
@@ -497,12 +469,8 @@
             "author": "Skyler White"
         },
         {
-            "quote": "No, No, you listen to me. It's time for you to listen to me.",
+            "quote": "No, no, you listen to me. It's time for you to listen to me.",
             "author": "Walter White"
-        },
-        {
-            "quote": "I just thought some allowance was in order once I heard about the **** lab. The one that used to be in the basement.",
-            "author": "Saul Goodman"
         },
         {
             "quote": "I fucked Ted.",
@@ -531,7 +499,246 @@
         {
             "quote": "6353 Juan Tabo Apartment 6",
             "author": "Walter White"
+        },
+        {
+            "quote": "You either run from things or you face them, Mr. White.",
+            "author": "Jesse Pinkman"
+        },
+        {
+            "quote": "Just say the word and I'll take you on a ride along.",
+            "author": "Hank Schrader"
+        },
+        {
+            "quote": "So, I should stop judging and accept? So, no matter what I do, hooray for me, because I'm a great guy?",
+            "author": "Jesse Pinkman"
+        },
+        {
+            "quote": "Where's the money Skyler!",
+            "author": "Walter White"
+        },
+        {
+            "quote": "I was told the man I was going to meet is a cautious man, a careful man. I believe we're alike in that way.",
+            "author": "Walter White"
+        },
+        {
+            "quote": "I thought we were going to Cold Stone Creamery.",
+            "author": "Walter Jr"
+        },
+        {
+            "quote": "It's nothing to me, it's a bacterium.",
+            "author": "Saul Goodman"
+        },
+        {
+            "quote": "Welcome to the Los Pollos Hermanos family.",
+            "author": "Gustavo Fring"
+        },
+        {
+            "quote": "Apply yourself.",
+            "author": "Walter White"
+        },
+        {
+            "quote": "Don't skimp on family, that's what I always say.",
+            "author": "Jack Welker"
+        },
+        {
+            "quote": "What do you think, Fed? Would you take that deal?",
+            "author": "Jack Welker"
+        },
+        {
+            "quote": "Does this look like a partner to you? Come here, take a look.",
+            "author": "Jack Welker"
+        },
+        {
+            "quote": "You want your money, right? You want to know where it is? You pull that trigger, you'll neve-",
+            "author": "Jack Welker"
+        },
+        {
+            "quote": "I am awake.",
+            "author": "Walter White"
+        },
+        {
+            "quote": "We had a good thing you stupid son of a *****, we had Fring, we had a lab, we had everything we needed and it all ran like clockwork.",
+            "author": "Mike Ehrmantraut"
+        },
+        {
+            "quote": "You could have shut your mouth, cooked, and made as much money as you needed.",
+            "author": "Mike Ehrmantraut"
+        },
+        {
+            "quote": "Some straight like you, giant stick up his ***, age what - 60? He's just gonna break bad?",
+            "author": "Jesse Pinkman"
+        },
+        {
+            "quote": "So you were always like this.",
+            "author": "Walter White"
+        },
+        {
+            "quote": "Blue, yellow, pink, whatever man. Just keep bringing me that.",
+            "author": "Tuco Salamanca"
+        },
+        {
+            "quote": "Tight, Tight, Tight!",
+            "author": "Tuco Salamanca"
+        },
+        {
+            "quote": "Are you saying that I'm stupid? Is that it? Is that what you're doing?!",
+            "author": "Tuco Salamanca"
+        },
+        {
+            "quote": "This is what comes of blood for blood, Hector.",
+            "author": "Gustavo Fring"
+        },
+        {
+            "quote": "I hate chili powder.",
+            "author": "Tuco Salamanca"
+        },
+        {
+            "quote": "You called her \"biznatch\"?",
+            "author": "Tuco Salamanca"
+        },
+        {
+            "quote": "Nobody moves crystal in the South Valley but me, *****!",
+            "author": "Tuco Salamanca"
+        },
+        {
+            "quote": "We're going to make a lot of money together.",
+            "author": "Tuco Salamanca"
+        },
+        {
+            "quote": "No, you're just speaking for me! Like I ain't got the Goddamn sense to speak for myself! Is that it? Is that what you're doing?",
+            "author": "Tuco Salamanca"
+        },
+        {
+            "quote": "Okay, Heisenberg! Next week.",
+            "author": "Tuco Salamanca"
+        },
+        {
+            "quote": "Like the wild west?",
+            "author": "Jesse Pinkman"
+        },
+        {
+            "quote": "You and I will not make garbage.",
+            "author": "Walter White"
+        },
+        {
+            "quote": "We will produce a chemically pure and stable product that performs as advertised.",
+            "author": "Walter White"
+        },
+        {
+            "quote": "Me, personally, I was hired to do a job. I did it.",
+            "author": "Mike Ehrmantraut"
+        },
+        {
+            "quote": "Did I dream it or did I have $1,600,000 on my desk in cash?",
+            "author": "Saul Goodman"
+        },
+        {
+            "quote": "When I close my eyes, I can still see it. It's burned into my retinas like I was staring into the sun.",
+            "author":"Saul Goodman"
+        },
+        {
+            "quote": "I wasn't there when the meth was cooked. I wasn't there when it was sold. I didn't witness any of the murders, but I damn well knew it was happening.",
+            "author":"Saul Goodman"
+        },
+        {
+            "quote": "I kept Walter White out of jail, I laundered his money, I lied for him, I conspired with him, and I made millions.",
+            "author":"Saul Goodman"
+        },
+        {
+            "quote": "I was more than a willing participant. I was indispensable.",
+            "author": "Saul Goodman"
+        },
+        {
+            "quote": "You gave our money to Ted?",
+            "author":"Walter White"
+        },
+        {
+            "quote": "Why were you working against me Chuck?!",
+            "author":"Saul Goodman"
+        },
+        {
+            "quote": "Ever since my diagnosis, I sleep just fine.",
+            "author": "Walter White"
+        },
+        {
+            "quote": "I am not crazy! I know he swapped those numbers!",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "I knew it was 1216. One after Magna Carta. As if I could ever make such a mistake.",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "He covered his tracks, he got that idiot at the copy shop to lie for him.",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "You think this is something? You think this is bad? This chicanery?",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "He'll never change. He'll never change!",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "Ever since he was 9, always the same! Couldn't keep his hands out of the cash drawer!",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "And he gets to be a lawyer!? What a sick joke!",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "I'm your brother! We're supposed to look out for each other!",
+            "author": "Saul Goodman"
+        },
+        {
+            "quote": "You're not a real lawyer.",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "University of American Samoa for Christ's sake? An online course? What a joke.",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "I worked my *** off to get where I am! And you take these shortcuts and you think suddenly you're my peer?",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "You do what I do because you're funny and you can make people laugh.",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "I committed my life to this! You don't slide into it like a cheap pair of slippers and then reap all the rewards!",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "I know what you were, what you are—people don't change, you're Slippin' Jimmy!",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "Slippin' Jimmy I can handle just fine but Slippin' Jimmy with a law degree is like a chimp with a machine gun! ",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "The law is sacred! If you abuse that power people get hurt!",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "Did I dream it, or did I have $1,600,000 on my desk in cash?",
+            "author": "Saul Goodman"
+        },
+        {
+            "quote": "When I close my eyes, I can still see it. It's burned into my retinas like I was staring into the sun.",
+            "author": "Saul Goodman"
+        },
+        {
+            "quote": "You and Mozart. You both started young.",
+            "author": "Chuck McGill"
+        },
+        {
+            "quote": "The truth is you've never mattered all that much to me.",
+            "author": "Chuck McGill"
         }
-    ],
-    "characters": ["Walter White", "Walter Jr.", "Saul Goodman", "Jesse Pinkman", "Howard Hamlin", "Skyler White", "Mike Ehrmantraut", "Badger", "Gustavo Fring", "Hank Schrader", "Todd Alquist"]
+    ]
 }
